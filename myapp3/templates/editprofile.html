@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome {{request.user.username}}<img src="{{request.user.userprofile.image.url}}"height="150" width="150"></h1>
+<h2>Contact : {{request.user.userprofile.contact}}</h2>
+<h2>Email :  {{request.user.userprofile.email}}</h2>
+<h2>City :  {{request.user.userprofile.city}}</h2>
+</body>
+</html>

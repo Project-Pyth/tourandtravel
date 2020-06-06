@@ -1,0 +1,37 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<html>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+   body
+   {
+    margin:0px;
+        padding:0;
+        -webkit-background-size:cover;
+        background-position:center;
+        background-color:#ABEBC6;
+   }
+   .style
+   {
+   margin-top:3%;
+   }
+
+    </style>
+</head>
+<body>
+<div class="style">
+    <div class="container">
+        <div class="card mb-3" style="text-align:center">
+            <img src="{{packages_tour.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h1 class="card-title">{{packages_tour.place_name}}</h1>
+                <p class="card-text" style="text-align:justify">{{packages_tour.desc}} </p>
+                <h5 class="card-title">{{packages_tour.pub_date}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

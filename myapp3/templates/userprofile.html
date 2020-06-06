@@ -1,0 +1,124 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content%}
+<html>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+body
+{
+        margin:0px;
+        padding:0;
+        background image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.2),)url(image/'h5.jpg' );
+        background-size:cover;
+        background-position:center;
+}
+.style
+{
+margin-left:15%;
+height:103%;
+width:85%;
+margin-top:2%;
+font-size:25px;
+color:white;
+border-radius:24px;
+}
+.style input
+{
+ background:#C0C0C0;
+box-shadow:5px 5px 6px #fff;
+height:55px;
+width:335px;
+text-align:center;
+transition:all 0.6s ease;
+border-radius:24px;
+cursor:pointer;
+}
+.style button
+{
+ background: #C0C0C0;
+            text-align:center;
+            margin-top:2%;
+            margin-left:20%;
+            box-shadow:5px 5px 6px #fff;
+            border-bottom:1px solid #3498db;
+            border:none;
+            font-size:28px ;
+            height:50px;
+            width:200px;
+            outline:none;
+            color:green;
+            transition:all 0.6s ease;
+            border-radius:24px;
+            cursor:pointer;
+        }
+        .style button:hover
+        {
+             background:#008000;
+             color:#fff;
+             display-inline:block;
+        }
+}
+        /*///// Media Quaries /////////*/
+/* big landscape tablets,laptops, and desktops */
+@media(min-width:1310px)
+{
+
+}
+/* tablet, landscape, low resolution laptop and desktop */
+@media(max-width:1170px)
+{
+
+}
+/* portrait tablet, e-readers kindle */
+@media(max-width:668px)
+{
+.style
+{
+margin-left:5%;
+}
+.style input
+{
+height:40px;
+width:300px;
+}
+/* smartphone, android phones, landscape iphone */
+@media(max-width:615px)
+{
+.style
+{
+margin-left:0%;
+font-size:20px;
+}
+.style input
+{
+height:40px;
+width:300px;
+}
+}
+/* smartphone, portrait iphone, portrait 480*320 phones(android) */
+@media(max-width:593px)
+{
+.style
+{
+margin-left:4%;
+font-size:20px;
+}
+}
+
+    </style>
+    <title>Title</title>
+</head>
+<body background="{% static "image/h5.jpg" %}">
+<div class="style">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{u_form|crispy}}
+        {{p_form|crispy}}
+        <button type="submit">Update Profile</button>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

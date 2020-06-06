@@ -1,0 +1,54 @@
+{% extends 'nav.html'%}
+{%load static%}
+{%block content%}
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+    body
+    {
+     margin:0px;
+        padding:0;
+        -webkit-background-size:cover;
+        background-position:center;
+
+    }
+        .heading h2
+        {
+        text-align:center;
+        font-family:Cooper Black;
+        color:black;
+        background-color:green;
+
+        }
+    </style>
+</head>
+<body background="{% static "image/h.jpg" %}">
+<div class="heading">
+    <h2>Tour packages</h2>
+</div>
+<div class="container">
+    {% for packages_tour in packages %}
+    <div class="card mb-3" style="max-width: 1000px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{packages_tour.image.url}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{packages_tour.place_name}}</h5>
+                    <p class="card-text"  style="font-size:30px;" ><small class="text-muted"><b>{{packages_tour.category}}</b></small></p>
+                    <h3 class="card-title">Rs/-{{packages_tour.cost}}</h3>
+                    <p class="card-text">{{packages_tour.desc| truncatechars:100}}</p>
+                    <a href="{% url 'booknow' %}?package_id={{packages_tour.id}}" class="btn btn-primary">Book now!</a>
+                    <a href="{% url 'viewdetail' %}?package_id={{packages_tour.id}}" role="button" class="btn btn-primary">View Details</a>
+                    <p class="card-text"><small class="text-muted">{{packages_tour.pub_date}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}

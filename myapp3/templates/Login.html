@@ -1,0 +1,197 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+<html>
+<head>
+    <style>
+
+        body
+        {
+        margin:0px;
+        padding:0;
+        background image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2),)url(image/'13.jpg' );
+        -webkit-background-size:cover;
+        background-position:center;
+
+        }
+        .wrapper
+        {
+            margin=0;
+            width:430px;
+            height:440;
+            color:red;
+            top:60%;
+            left:60%;
+            padding-center:80px 60px;
+            position:absolute;
+            transform:translate(-50%,-50%);
+            box-sizing:border-box;
+            box-shadow:10px 10px 60px #000;
+
+
+        }
+         h1
+        {
+            margin-top:25px;
+            padding:center;
+            font-weight:bold;
+            text-transform:uppercase;
+            font-size:50px;
+            font-family:Cooper Black;
+            color:#2E8B57;
+            text-align:center;
+        }
+        .wrapper input
+        {
+        width=230px;
+        margin-top:120px;
+        }
+        .wrapper input[type="text"],.wrapper input[type="username"]
+        {
+            background:transparent;
+            display:block;
+            text-align:center;
+            margin:35px auto;
+            box-shadow:5px 5px 6px #000;
+            border-bottom:1px solid #3498db;
+            border:none;
+            font-size:16px;
+            opacity:1;
+            height:50px;
+            width:300px;
+            outline:none;
+            color:white;
+            transition:0.6s ease;
+            border-radius:24px;
+            cursor:pointer;
+        }
+        .wrapper input[type="text"],.wrapper input[type="password"]
+        {
+            background:transparent;
+            display:block;
+            text-align:center;
+            margin:30px auto;
+            box-shadow:5px 5px 6px #000;
+            border-bottom:1px solid #3498db;
+            border:none;
+            font-size:16px;
+            opacity:1;
+            height:50px;
+            width:300px;
+            outline:none;
+            color:white;
+            transition:all 0.6s ease;
+            border-radius:24px;
+            cursor:pointer;
+        }
+        .wrapper input[type="submit"]
+        {
+             background:transparent;
+            display:block;
+            text-align:center;
+            margin:20px auto;
+            box-shadow:5px 5px 6px #000;
+            border-bottom:1px solid #3498db;
+            border:none;
+            font-size:25px ;
+            height:50px;
+            width:150px;
+            outline:none;
+            color:#2E8B57;
+            transition:all 0.6s ease;
+            border-radius:24px;
+            cursor:pointer;
+        }
+        .wrapper input[type="submit"]:hover
+        {
+             background:#2E8B57;
+             color:black;
+             display-inline:block;
+        }
+
+        /*///// Media Quaries /////////*/
+/* big landscape tablets,laptops, and desktops */
+@media(min-width:1200px)
+{
+
+}
+/* tablet, landscape, low resolution laptop and desktop */
+@media(max-width:1105px)
+{
+}
+/* portrait tablet, e-readers kindle */
+@media(max-width:900px)
+{
+.wrapper
+        {
+
+            width:400px;
+            height:400px;
+        }
+}
+/* smartphone, android phones, landscape iphone */
+@media(max-width:700px)
+{
+.wrapper
+        {
+
+            width:370px;
+            height:390px;
+        }
+
+}
+/* smartphone, portrait iphone, portrait 480*320 phones(android) */
+@media(max-width:600px)
+{
+.wrapper
+        {
+            width:300px;
+            height:350px;
+        }
+  h1
+        {
+       font-size:45px;
+        }
+ .wrapper input[type="text"],.wrapper input[type="username"]
+        {
+            height:40px;
+            width:200px;
+         }
+ .wrapper input[type="text"],.wrapper input[type="password"]
+        {
+            height:40px;
+            width:200px;
+        }
+ .wrapper input[type="submit"]
+        {
+            height:40px;
+            width:130px;
+        }
+}
+    </style>
+    <title>login page</title>
+</head>
+<body background="{% static "image/13.jpg" %}">
+<div class="wrapper">
+    <h1>Login</h1>
+    <form method="POST" action="Login">
+        {% csrf_token %}
+        <div>
+            {% for messages in messages %}
+            {% if message.level == DEFAULT_MESSAFE_LEVELS.INFO %}
+            <h3>{{messages}}</h3>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <input type ="username" name="uname" placeholder="username" required>
+        <input type ="password" name="pass" placeholder="password" required>
+        <input type ="submit" name="name" value="Login">
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}
+
+
+
+

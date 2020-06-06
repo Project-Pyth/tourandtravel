@@ -1,0 +1,165 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+<html>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <style>
+        body
+        {
+        margin:0px;
+        padding:0;
+        background image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.2),)url(image/'w.jpg' );
+        background-size:cover;
+        background-position:auto;
+        }
+        .heading h1
+        {
+        margin-top:3%;
+         text-align:center;
+        color:white;
+        font-family:Elephant;
+        }
+        .containor1
+        {
+        margin-left:23%;
+        color:gray;
+        width:53%;
+        font-size:22px;
+        margin-top:3%;
+        font-family:Elephant;
+        }
+         .container
+        {
+        margin-top:3%;
+        color:white;
+        font-size:20px;
+        font-family:Elephant;
+        }
+
+        .cost
+        {
+        margin-left:80%;
+        background-color:brown;
+        width:120px;
+        }
+      /*///// Media Quaries /////////*/
+/* portrait tablet, e-readers kindle */
+@media(max-width:904px)
+{
+ .containor1
+        {
+
+        font-size:19px;
+        }
+}
+@media(max-width:790px)
+{
+.containor1
+        {
+
+        font-size:17px;
+        }
+}
+/* smartphone, android phones, landscape iphone */
+@media(max-width:770px)
+{
+ .heading h1
+        {
+        font-size:30px;
+        }
+.container
+{
+width:80%;
+}
+}
+/* smartphone, portrait iphone, portrait 480*320 phones(android) */
+@media(max-width:720px)
+{
+.containor1
+        {
+
+        font-size:16px;
+        }
+}
+@media(max-width:680px)
+{
+.containor1
+        {
+         width:55%;
+        font-size:11px;
+        }
+}
+
+    </style>
+    <title>BOOKING DETAIL</title>
+</head>
+<body  background="{% static "image/w.jpg" %}">
+<div class="heading">
+    <h1> Detail of package </h1>
+</div>
+<div class="containor1">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Package ID:-  {{packages_tour.id}}</li>
+        <li class="list-group-item">Place Name:-     {{packages_tour.place_name}}</li>
+        <li class="list-group-item">Package Category:-       {{packages_tour.category}}</li>
+        <li class="list-group-item">Price:-         Rs/-{{packages_tour.cost}}</li>
+    </ul>
+</div>
+<div class="heading">
+    <h1>Fill Your Booking Detail</h1>
+</div>
+
+<div class="container">
+    <form method="POST" action="booknow">
+           {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name">Username</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your username"required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="contact">Contact</label>
+          <input type="tel" class="form-control" id="contact" name="contact" placeholder="Enter your contact"required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address"required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Example@email.com"required>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city"required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="state">State</label>
+          <input type="text" class="form-control" id="state" name="state" placeholder="Enter your state"required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="from_date">Departure Date</label>
+          <input type="date" class="form-control" id="from_date" name="from_date"required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="to_date">Return Date </label>
+          <input type="date" class="form-control" id="to_date" name="to_date"required>
+        </div>
+      </div>
+        <button type="submit" class="btn btn-danger" href="/process_payment">Checkout</button>
+    </form>
+</div>
+<div>
+    {% for messages in messages %}
+    <h3>{{messages}}</h3>
+    {% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}

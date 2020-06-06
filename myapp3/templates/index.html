@@ -1,0 +1,154 @@
+{% extends 'nav.html'%}
+{% load static %}
+{% block content %}
+<html>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    body
+    {
+       height:100%;
+       width:100%;
+       background-size=cover;
+       background-position:center;
+    }
+
+    main
+    {
+       width:100%;
+       height:80vh;
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       text-align:center;
+       color:white;
+    }
+
+    section h3
+    {
+    font-size:40px;
+    font-weight:150%;
+    letter- spacing:2px;
+    text-shadow:4px 4px 8px black;
+    }
+    section h1
+    {
+    margin:30px 0 10px 0;
+    font-size:40px;
+    font-weight:500;
+    letter- spacing:1px;
+    text-shadow:2px 2px 5px black;
+    text-transform:uppercase;
+    }
+    section a
+    {
+    margin:50px 0 30px 0;
+    padding:15px 40px;
+    border-radius:9px;
+    outline:none;
+    text-transform:uppercase;
+    font-size:15px;
+    font-weight:500;
+    letter- spacing:2px;
+    text-decoration:none;
+    transition:all .6s ease;
+    }
+    section .botn
+    {
+    background:white;
+    color:black;
+    }
+    .botn:hover
+    {
+    background:#00b894;
+    color:white;
+    }
+    .foot
+    {
+    text-align:center;
+    color:white;
+    font-size:20px;
+    font-family:Elephant;
+    }
+/*///// Media Quaries /////////*/
+/* big landscape tablets,laptops, and desktops */
+@media(min-width:1200px)
+{
+
+}
+/* tablet, landscape, low resolution laptop and desktop */
+@media(max-width:1105px)
+{
+    section h3
+    {
+    font-size:30px;
+    }
+   section h1
+    {
+    font-size:30px;
+    }
+    .botn
+    {
+    margin-top:80px;
+
+    }
+}
+/* portrait tablet, e-readers kindle */
+@media(max-width:900px)
+{
+    section h1
+    {
+    font-size:25px;
+    }
+}
+/* smartphone, android phones, landscape iphone */
+@media(max-width:700px)
+{
+ section h1
+    {
+    font-size:22px;
+    }
+
+}
+/* smartphone, portrait iphone, portrait 480*320 phones(android) */
+@media(max-width:617px)
+{
+ section h1
+    {
+    font-size:17px;
+    margin:30px 0 10px 0;
+    }
+}
+
+    </style>
+</head>
+<body background="{% static "image/22.jpg" %}">
+        <main>
+            <section>
+                <h3>Welcome To Website</h3>
+                <h1><b>DO COME & VISIT TO YOUR ENJOYABLE DESTINATION</b></H1>
+                    <a href="/learnmore" class="botn">About Us</a>
+            </section>
+        </main>
+</body>
+<footer style="height:100px; background:rgba(0,0,0,0.6); ">
+    <div>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="foot">
+        <p>Created by tour and travel All Rights Reserved.</p>
+        <p><svg class="bi bi-envelope" width="1em" height="1em" viewBox="0 0 " fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14 3H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+  <path d="M.05 3.555C.017 3.698 0 3.847 0 4v.697l5.803 3.546L0 11.801V12c0 .306.069.596.192.856l6.57-4.027L8 9.586l1.239-.757 6.57 4.027c.122-.26.191-.55.191-.856v-.2l-5.803-3.557L16 4.697V4c0-.153-.017-.302-.05-.445L8 8.414.05 3.555z"/>
+</svg>  sumanmahay@gmail.com</p>
+    </div>
+</footer>
+</html>
+{% endblock %}
+
+
+

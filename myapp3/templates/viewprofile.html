@@ -1,0 +1,139 @@
+{% extends 'nav.html' %}
+{% load static%}
+{% block content %}+
+<html>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+body
+{
+        margin:0px;
+        padding:0;
+        background image:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.2),)url(image/'hhhh.jpg' );
+        background-size:cover;
+        background-position:center;
+ }
+ .profile
+ {
+width:40%;
+height:70%;
+background-color:rgba(0,0,0,0.3);
+border-radius:10%;
+margin-left:5%;
+ }
+ .profile img
+ {
+ border-radius:70%;
+ margin-left:36%;
+  margin-top:5%;
+ }
+ .profileText
+ {
+ color:white;
+ text-align:center;
+ }
+ .profileText h1
+ {
+ font-family:Cooper Black;
+ }
+  .profileText h3
+ {
+ font-family:Elephant;
+ }
+        /*///// Media Quaries /////////*/
+/* big landscape tablets,laptops, and desktops */
+@media(min-width:1310px)
+{
+
+}
+/* tablet, landscape, low resolution laptop and desktop */
+@media(max-width:1170px)
+{
+ .profile
+ {
+height:60%;
+ }
+ .profileText h1
+ {
+ font-size:20px;
+ font-family:Cooper Black;
+ }
+  .profileText h3
+ {
+ font-size:20px;
+ font-family:Elephant;
+ }
+}
+/* portrait tablet, e-readers kindle */
+@media(max-width:900px)
+{
+.profileText h1
+ {
+ font-size:18px;
+ font-family:Cooper Black;
+ }
+  .profileText h3
+ {
+ font-size:18px;
+ font-family:Elephant;
+ }
+}
+/* smartphone, android phones, landscape iphone */
+@media(max-width:700px)
+{
+ .profile
+ {
+height:50%;
+ }
+.profile img
+ {
+ height:100px;
+ width:100px;
+ border-radius:70%;
+ margin-left:36%;
+  margin-top:5%;
+ }
+.profileText h1
+ {
+ font-size:15px;
+ font-family:Cooper Black;
+ }
+  .profileText h3
+ {
+ font-size:15px;
+ font-family:Elephant;
+ }
+}
+/* smartphone, portrait iphone, portrait 480*320 phones(android) */
+@media(max-width:570px)
+{
+.profile
+ {
+width:45%;
+height:50%;
+}
+.profile img
+ {
+margin-left:30%;
+ }
+}
+
+    </style>
+    <title>Title</title>
+</head>
+<body background="{% static "image/hhhh.jpg" %}">
+<div class="profile">
+    {% if request.user.userprofile.image %}
+    <img src="{{request.user.userprofile.image.url}}"height="150" width="150">
+    {% endif %}
+    <div class="profileText">
+        <h1> {{request.user.username}}</h1>
+         <h3> {{request.user.userprofile.email}}</h3>
+        <h3> {{request.user.userprofile.contact}}</h3>
+        <h3>  {{request.user.userprofile.city}}</h3>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
+
